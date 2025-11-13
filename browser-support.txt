@@ -1,1 +1,269 @@
-salam
+//The following topics will be covered in this chapter:
+//  Inheritance
+//  Overriding functions
+//  Encapsulation
+//  Polymorphism
+//  Abstraction
+//  Interfaces
+
+
+
+class Person {
+    var name: String = "Abid"
+    var age : Int = 40
+    var height : Double = 6.0
+    fun display () {
+        println("Name $name, Age $age Height $height")
+    }
+
+fun main(args: Array<String>) {
+        val person = Person()
+        person.display()
+}
+//    class Person(pName: String, pAge: Int, pHeight : Double ) {
+//        var name : String = pName
+//        var age : Int = pAge
+//        var height : Double = pHeight
+//        init {
+//            require(name.trim().isNotEmpty()) {"Name should not empty"}
+//            require(age > 0 ) {"Age is not correct"}
+//            require(height > 0) {"Height is not correct"}
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        val person = Person("bob",40,6.1)
+//        println("Name ${person.name}, Age ${person.age} Height
+//            ${person.height}"
+//    }
+
+
+//    class Person(pName: String, pAge: Int, pHeight : Double ) {
+//        private var name : String = pName
+//        private var age : Int = pAge
+//        private var height : Double = pHeight
+//        init {
+//            require(name.trim().isNotEmpty()) {"Name should not empty"}
+//            require(age > 0 ) {"Age is not correct"}
+//            require(height > 0) {"Height is not correct"}
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        val person = Person("bob",40,6.1)
+//        println("Name ${person.name}, Age ${person.age} Height
+//            ${person.height}"
+//    }
+
+
+
+//    class Person(pName: String, pAge: Int, pHeight : Double ) {
+//        private var name : String = pName
+//        private var age : Int = pAge
+//        private var height : Double = pHeight
+//        init {
+//            require(name.trim().isNotEmpty()) {"Name should not empty"}
+//            require(age > 0 ) {"Age is not correct"}
+//
+//            require(height > 0) {"Height is not correct"}
+//        }
+//        fun getAge() : Int{
+//            return age;
+//        }
+//        fun setAge(age : Int) {
+//            require(age > 0 ) {"Age is not correct"}
+//            this.age = age
+//        }
+//        fun display(){
+//            println("Name ${name}, Age ${age} Height ${height}")
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        val person = Person("bob",40,6.1)
+//        person.display()
+//        person.setAge(42)
+//        person.display()
+//
+
+    class A {
+        protected val i = 1
+        public val j = 2
+    }
+    open class B : A() {
+        fun display(){
+            println("Protected i $i" )
+            println("Public j $j")
+        }
+    }
+//    fun main(args: Array<String>) {
+//        val b = B()
+//        b.display()
+//    }
+
+    class C {
+        val obj = A()
+        fun display(){
+// println("Protected i ${obj.i}" )
+            println("Public j ${obj.j}")
+        }
+    }
+
+//    fun withdraw(remove : Double) {
+//        if(balance >= remove){
+//            balance -= remove
+//            println("$remove money has withdrawn from $accID account,
+//                    current balance is $balance")
+//        } else {
+//            println("Not enough balance in $accID account,
+//                    current balance is $balance")
+//        }
+//    }
+//    fun deposit(add : Double){
+//        if(add > 0){
+//            balance += add
+//            println("$add money has deposited in $accID account,
+//                    current balance is $balance")
+//        } else {
+//            println("Cannot process....")
+//        }
+//    }
+//}
+//fun main(args: Array<String>) {
+//    var account = BankAcc(123, 500.0)
+//    account.withdraw(600.0)
+//    account.withdraw(100.0)
+//    account.deposit(600.0)
+//}
+
+
+//    class Professor(val fName: String, var lName: String, var pAge: Int, val
+//    professorId : String ) {
+//        fun speak() {
+//            println("My name is $fName $lName age is $pAge and my
+//                    ID is $professorId")
+//        }
+//        fun greet() {
+//            println("Hi there... Professor $fName ")
+//        }
+//        fun aboutSpecialization() {
+//            println("I have a done my Phd in Computer science")
+//        }
+//        fun deliverLecture() {
+//            println("I am teaching Introduction to Kotlin.")
+//
+//
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        val jon = Professor("Jon","Jack",40, "PR-101")
+//        jon.greet()
+//        jon.speak()
+//        jon.aboutSpecialization()
+//        jon.deliverLecture()
+//    }
+
+//    open class Person (val fName: String, var lName: String, var pAge: Int, val
+//    ID : String) {
+//        fun speak() {
+//            println("My name is $fName $lName, my id is $ID and age is $pAge")
+//        }
+//        fun greet() {
+//            println("Hi How are you...")
+//        }
+//    }
+//    class Student(fName: String, lName: String, pAge: Int, ID: String ):
+//        Person(fName,lName,pAge, ID) {
+//        fun aboutEducation(){
+//            println("I am a student of Computer Science.")
+//        }
+//        fun attendLectures() {
+//            println("I am studying Introduction to Kotlin lecture.")
+//        }
+//    }
+//
+//    fun main(args: Array<String>) {
+//        val bob = Student("Bob", "Peter", 25, "A-123")
+//        bob.speak()
+//        bob.greet()
+//        bob.attendLectures()
+//        bob.aboutEducation()
+//    }
+
+//    class Student: Person {
+//        constructor(fName: String,lName: String, age: Int, id: String) :
+//                super(fName,lName,age, id)
+//        fun aboutEducation(){
+//            println("I am a student of Computer Science.")
+//        }
+//        fun attendLectures() {
+//            println("I am studding Introduction to Kotlin lecture.")
+//        }
+//    }
+
+//    open class A {
+//        init {
+//            println("Class A is initialized")
+//        }
+//    }
+//    open class B : A() {
+//        init {
+//            println("Class B is initialized")
+//        }
+//    }
+//    class C : B() {
+//        init {
+//            println("Class C is initialized")
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        // val a = A()
+//        val c = C()
+//    }
+
+//    open class Person (val fName: String, var lName: String, var pAge: Int) {
+//        fun speak() {
+//            println("My name is $fName $lName age is $pAge")
+//        }
+//        fun greet() {
+//            println("Hi there...$fName ")
+//        }
+//    }
+//    class Student(fName: String, lName: String, pAge: Int , val studentId :
+//    String) : Person(fName,lName,pAge) {
+//        ...
+//        ...
+//    }
+
+//    abstract class Shape(val name: String) {
+//        init {
+//            println("Drawing $name")
+//        }
+//        open fun draw(){}
+//        open fun getArea() : Double{ return 0.0 }
+//    }
+
+//    interface interface_name{
+//        fun func1()
+//        fun func2()
+//    interface IPrintable {
+//        fun print()
+//    }
+
+//    class Invoice : IPrintable {
+//        override fun print() {
+//            println("Invoice is printed")
+//        }
+//    }
+
+//    interface Clickable{
+//        fun click()
+//    }
+//    class Button : Clickable {
+//        override fun click() {
+//            println("Button is clicked")
+//        }
+//    }
+//    fun main(args: Array<String>) {
+//        var invoice = Invoice()
+//        invoice.print()
+//        var button = Button()
+//        button.click()
+//    }
